@@ -22,7 +22,7 @@ list_of_files = [
     "app.py",
     "main.py"
 	"Dockerfile",
-	"requirements.py",
+	"requirements.txt",
 	"setup.py",
 	"resource/trail.ipynb"
 	]
