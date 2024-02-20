@@ -1,29 +1,26 @@
 import setuptools
-from setuptools import find_packages
-from typing import List
-from setuptools import setup
 
-Hypen_E_Dot = '-e .'
+with open("README.md", "r", encoding="utf-8") as f:
+    long_description = f.read()
+    
+__version__ = "0.0.0"
+REPO_NAME = "Text-Summarizer-Project"
+AUTHOR_USER_NAME = "pavansai247"
+SRC_REPO = "textSummarizer"
+AUTHER_EMAIL = "pavansai16247@gmail.com"
 
-def get_requirements(file_path: str) -> List[str]:
-    '''
-    this function returns the requirements list
-    '''
-    requirements = []
-    with open(file_path) as file_obj:
-        requirements = file_obj.readlines()
-        requirements = [req.replace("\n", " ") for req in requirements]
-        if Hypen_E_Dot in requirements:
-            requirements.remove(Hypen_E_Dot)
-    return requirements
-
-setup(
-    Name="ML Project",
-    Repo_name = "Text-Summarizer-Project"
-    Src_Repo = "Text Summarizer"
-    Version="0.0.1",
-    author="Pavan Sai",
-    author_name="pavansai24716@gmail.com",
-    packages=find_packages(),
-    install_requires=get_requirements("requirements.txt")
+setuptools.setup(
+    Name=SRC_REPO,
+    version =__version__,
+    author= AUTHOR_USER_NAME,
+    author_email= AUTHER_EMAIL,
+    description = "Python package for NLP app",
+    Long_description = long_description,
+    Long_description_content = "text/markdown",
+    url =f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}",
+    project_urls={
+        "Bug Tracker": f"https://github.com/{AUTHOR_USER_NAME}/{REPO_NAME}/issues",
+    },
+    package_dir = {"": "src"},
+    packages = setuptools.find_packages(where="src")
 )
